@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直居中二种方案，顶relative相对定位不脱离文档流</title>
+</head>
+<body>
+    <div class="old">垂直居中
+        <div class="child"></div>
+    </div>
+    方案优点是浏览器兼容比较好，
+    缺点是vertical-align具有继承性会让父元素文本也会垂直居中
+    <hr>
+    <div class="old2">垂直居中
+        <div class="child2"></div>
+    </div>
+    方案优点不管父元素是否脱离文档流，不影响子元素的垂直居中效果
+    缺点是transform 是css3 新增特性
+
+<style>
+.old{
+    width: 300px;
+    height: 1200px;
+    background-color: aliceblue;
+    /* 单元格的表格 */
+    display: table-cell;
+    /* 文本垂直居中 top顶部对齐 */
+    vertical-align: middle;
+}
+.child{
+    width: 300px;
+    height: 300px;
+    background-color: brown;
+}
+
+.old2{
+    width: 300px;
+    height: 1200px;
+    background-color: aliceblue;
+    /* 开启定位 relative不会脱离文档流 */
+    position: relative;
+}
+.child2{
+    width: 300px;
+    height: 300px;
+    background-color: brown;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+</style>
+</body>
+</html>

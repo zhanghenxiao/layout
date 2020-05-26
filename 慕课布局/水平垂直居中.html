@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直居中，方案三种</title>
+</head>
+<body>
+    <div class="old">水平垂直居中
+        <div class="child"></div>
+    </div>
+    属于自己的方案缺点是父元素的文本同样也会垂直居中
+    <hr>
+    <div class="old2">水平垂直居中
+        <div class="child2"></div>
+    </div>
+    方案一缺点父级元素文本有垂直居中
+    <hr>
+    <div class="old3">水平垂直居中
+        <div class="child3"></div>
+    </div>
+    方案二优点对父级元素文本无影响
+
+<style>
+.old{
+    width: 600px;
+    height: 500px;
+    background-color: aliceblue;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+.child{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    display: inline-block;
+}
+
+.old2{
+    width: 600px;
+    height: 500px;
+    background-color: aliceblue;
+    display: table-cell;
+    vertical-align: middle;
+    
+}
+.child2{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    display: table;
+    margin: 0 auto;
+}
+
+.old3{
+    width: 600px;
+    height: 400px;
+    background-color: aliceblue; 
+    position: relative; 
+}
+.child3{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+</style>
+</body>
+</html>
